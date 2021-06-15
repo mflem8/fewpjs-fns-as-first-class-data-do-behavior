@@ -7,41 +7,21 @@ function handleClick(e) {
   displayMessage(greet(timeString))
 }
 
-/* End Given Code, don't edit above here...*/
+const greet = (string) => {
+  const timeString = string.split(":");
+  const timeArray = timeString.join('');
+  const parsedTime = parseInt(timeArray); 
+    if (parsedTime < 1200) {
+      return "Good Morning";
+    } else if (parsedTime >= 1200 && parsedTime < 1700) {
+        return "Good Afternoon";
+    } else {
+        return "Good Evening";
+    };
+};
 
-/* The `greet` function should take one argument, a `String` which specifies the
-24-hour time in the format `HH:MM`.
+const message = document.getElementById('greeting');
 
-- If the time is earlier than 12pm, return "Good Morning".
-- If the time is between 12pm and 5pm, return "Good Afternoon".
-- If the time is later than 5pm, return "Good Evening".
-
-**NOTE:** The value returned from the `<input>` will be of type `String`.
-You’ll need to take the `String` of the 24 hour time and convert it to a number. */
-
-function greet(time) {
-  let currentTime = time.split(":");
-  let otherTime = currentTime[0].concat(currentTime[1]);
-  let result = parseInt(otherTime, 10);
-
-  if (result < 1200) {
-    return "Good Morning";
-  }
-
-  else if (result > 1700) {
-    return "Good Evening";
-  }
-
-  else {
-    return "Good Afternoon";
-  }
-}
-
-function displayMessage(message) {
-  document.getElementById("greeting").innerText = message;
-}
-
-
-
-/* Write your implementation of greet() */
-/* Write your implementation of displayMessage() */
+const displayMessage = (string) => {
+  console.log(message.innerText = string);
+};
